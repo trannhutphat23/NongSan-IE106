@@ -1,0 +1,112 @@
+const ChatQuery = {
+    "getFromCart": {
+        "keywords": [
+            "gợi ý món ăn",
+            "món ăn ngon",
+            "món ăn hấp dẫn",
+            "món ăn độc đáo",
+            "món ăn mới lạ",
+            "danh sách món ăn",
+            "gợi ý",
+            "công thức nấu ăn",
+            "công thức",
+            "nấu",
+            "làm món",
+            "cách nấu",
+            "hướng dẫn nấu ăn",
+            "món ăn",
+            "bí quyết nấu ăn",
+            "học nấu ăn",
+            "nấu ăn ngon",
+            "nấu ăn đơn giản",
+            "nấu ăn dễ dàng",
+            "nấu ăn tại nhà",
+            "nấu ăn cho bé",
+            "nấu ăn cho người mới bắt đầu",
+            "nấu ăn theo mùa",
+            "nấu ăn chay",
+            "nấu ăn vegan",
+            "nấu ăn kiêng",
+            "chế biến",
+            "làm món ăn",
+            "đun nấu",
+            "xào",
+            "rán",
+            "kho",
+            "canh",
+            "luộc",
+            "hấp",
+            "nướng",
+            "tự làm",
+            "cách nấu",
+            "hướng dẫn",
+            "bí quyết",
+            "mẹo",
+            "bí quyết nấu ăn",
+            "mẹo nấu ăn",
+            "cách nấu ngon",
+            "cách làm đơn giản",
+            "cách làm dễ dàng"
+        ],
+        "questions": [
+            "Hôm nay nấu gì ngon?",
+            "Có công thức nấu món gì ngon không?",
+            "Cho mình công thức nấu món phở bò?",
+            "Mình muốn học cách làm bánh xèo?",
+            "Có cách nào để làm món gà kho tộ cay?",
+            "Hôm nay ăn gì?",
+            "Mình muốn ăn món gì đó cay cay?",
+            "Bạn thích ăn món gì?",
+            "Món ăn nào ngon nhất Việt Nam?",
+            "Món ăn nào dễ làm nhất?",
+            "Mình cần mua nguyên liệu gì để nấu món phở bò?",
+            "Làm sao để nấu món phở bò ngon?",
+            "Bí quyết để làm món gà kho tộ mềm và đậm đà?",
+            "Cách rán nem không bị nát?",
+            "Mẹo để luộc rau củ giữ được màu xanh?",
+            "Nên nướng thịt ở nhiệt độ bao nhiêu?",
+            "Làm sao để làm bánh xèo?",
+            "Cách làm món gỏi cuốn?",
+            "Tự làm sữa chua tại nhà?",
+            "Làm mứt trái cây đơn giản?",
+            "Cách làm muối ớt chanh?"
+        ],
+        "suggest": [
+            "Gợi ý cho mình công thức nấu món ăn đơn giản.",
+            "Cho mình xem công thức nấu món phở bò.",
+            "Chỉ mình cách làm món bánh xèo.",
+            "Mình muốn học cách nấu món ăn mới.",
+            "Cho mình xem thực đơn cho bữa tối nay.",
+            "Gợi ý cho mình món gì để nấu tối nay.",
+            "Mình muốn ăn món gì đó cay cay.",
+            "Bạn có thể giới thiệu món ăn nào ngon không?",
+            "Món ăn nào phù hợp cho người ăn kiêng?",
+            "Món ăn nào tốt cho sức khỏe?",
+            "Gợi ý cho mình nguyên liệu để nấu món phở bò."
+        ]
+    },
+    "addToCart": {
+        "keywords": [
+            // "thêm vào giỏ hàng",
+            // "mua",
+            // "đặt hàng",
+            // "mua thêm",
+            // "thêm sản phẩm",
+            // "bỏ vào giỏ hàng"
+        ],
+        "questions": [
+            // "Ở đâu bán thịt bò ngon?",
+            // "Cách bảo quản rau củ quả tươi lâu?",
+            // "Mẹo chọn mua hải sản tươi ngon?",
+            // "Nên mua loại gạo nào để nấu cơm ngon?"
+        ],
+        "suggest": [
+            // "Cho mình biết ở đâu bán thịt bò ngon.",
+            // "Mẹo bảo quản rau củ quả tươi lâu?",
+            // "Nên mua loại gạo nào để nấu cơm ngon?",
+            // "Cách chọn mua hải sản tươi ngon?"
+        ]
+    }
+}
+
+export default ChatQuery;

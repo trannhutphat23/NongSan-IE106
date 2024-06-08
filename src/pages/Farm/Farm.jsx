@@ -7,6 +7,7 @@ import FarmProduct from "./FarmProduct";
 import '../../hiddenScroll.css'
 import FarmInfo from "./FarmInfo";
 import { AppContext } from "../../Context/AppContext";
+import { useNavigate, useParams } from "react-router-dom";
 
 
 const Farm = () => {
@@ -16,12 +17,27 @@ const Farm = () => {
     const [preFarm, setPreFarm] = useState([])
     const [isShow, setIsShow] = useState(false)
 
+    const params = useParams()
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        if (params.farmID) setIsShow(true)
+    }, [params.farmID])
+
     console.log(farms)
 
     function showFarm(value) {
-        setPreFarm(value)
-        if (value == preFarm)
+        // setPreFarm(value)
+        if (value == params.farmID) {
             setIsShow(!isShow)
+            navigate("/trang-trai")
+
+        }
+    }
+
+    function closeShow() {
+        setIsShow(false)
+        navigate("/trang-trai")
     }
 
     return (
@@ -32,7 +48,7 @@ const Farm = () => {
                     />
                 </div>
                 <div className="w-full flex flex-col items-center">
-                    <div className="w-full flex flex-col items-center">
+                    <div className="w-full flex flex-col items-center mb-10">
                         <p className="text-3xl md:text-4xl font-black text-center text-[#7dc642] mb-5">CÁC TRANG TRẠI LIÊN KẾT VỚI CHÚNG TÔI</p>
                         <p className="w-full md:w-4/5 text-center text-lg">
                             <span className="block mb-5">
@@ -50,6 +66,7 @@ const Farm = () => {
                     </div>
                     <FarmInfo
                         isShow={isShow}
+                        onclick={closeShow}
                         value={preFarm}
                     />
 
@@ -58,7 +75,7 @@ const Farm = () => {
                             return (
                                 <FarmBox
                                     key={index}
-                                    onclick={() => showFarm(value)}
+                                    onclick={() => showFarm(value._id)}
                                     value={value}
                                 />
                             )

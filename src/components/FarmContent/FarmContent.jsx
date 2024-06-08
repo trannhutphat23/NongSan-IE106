@@ -9,7 +9,26 @@ import farmImg from '../../assets/farm.png'
 import { AppContext } from "../../Context/AppContext";
 
 const FarmContent = () => {
-    const { farms } = useContext(AppContext)
+    const { farms, setBreadcrumb } = useContext(AppContext)
+    function AddBreadcrumb() {
+        const path = {
+            main: "Trang trại",
+            second: "",
+            child: 4,
+            query: {
+                link: "",
+                category: {
+                    slug: "bread",
+                    link: "temp"
+                },
+                farm: {
+                    slug: "",
+                    link: ""
+                }
+            }
+        }
+        setBreadcrumb(path)
+    }
     return (
         <div className=" flex items-center justify-center ">
             <div className="w-11/12 py-20 flex flex-col justify-center items-center">
@@ -56,6 +75,7 @@ const FarmContent = () => {
                             return (
                                 <SwiperSlide key={index}>
                                     <FarmBox
+                                        onclick={AddBreadcrumb}
                                         value={value}
                                     />
                                 </SwiperSlide>

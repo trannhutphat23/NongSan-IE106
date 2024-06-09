@@ -29,12 +29,15 @@ const NavBar = () => {
         }
     };
     const [name, setName] = useState(null)
+    const [email, setEmail] = useState(null)
     useEffect(() => {
         if (localStorage.user) {
             const userObj = JSON.parse(localStorage.user)
             setName(userObj.name || "")
+            setEmail(userObj.email || "")
         }else{
             setName(null)
+            setEmail(null)
         }
     }, [location])
 
@@ -121,7 +124,9 @@ const NavBar = () => {
                                         </div>
                                         <div>
                                             <p class="text-white font-normal text-sm text-left">Tài khoản</p>
-                                            <p class="text-[#7dc642] font-medium text-sm text-left"> {name != "" ? <div className="text-[#7dc642] font-medium text-sm text-left">{name}</div> : <div className="text-[#7dc642] font-medium text-sm text-left">Đăng nhập</div>}</p>
+                                            <p class="text-[#7dc642] font-medium text-sm text-left"> {(localStorage.user && name != "") ? <div className="text-[#7dc642] font-medium text-sm text-left">{name}</div> : 
+                                                ((localStorage.user && name === "") ? <div className="text-[#7dc642] font-medium text-sm text-left">{email}</div> : <div className="text-[#7dc642] font-medium text-sm text-left">Đăng nhập</div> )
+                                            }</p>
                                         </div>
                                     </div>
                                 </RouterButton>
@@ -306,7 +311,9 @@ const NavBar = () => {
                                         </div>
                                         <div className="hidden lg:block">
                                             <p class="text-white font-normal text-sm text-left">Tài khoản</p>
-                                            {name ? <div className="text-[#7dc642] font-medium text-sm text-left">{name}</div> : (<div className="text-[#7dc642] font-medium text-sm text-left">Đăng nhập</div>)}
+                                            <p class="text-[#7dc642] font-medium text-sm text-left"> {(localStorage.user && name != "") ? <div className="text-[#7dc642] font-medium text-sm text-left">{name}</div> : 
+                                                ((localStorage.user && name === "") ? <div className="text-[#7dc642] font-medium text-sm text-left">{email}</div> : <div className="text-[#7dc642] font-medium text-sm text-left">Đăng nhập</div> )
+                                            }</p>
                                         </div>
                                     </div>
                                 </RouterButton>

@@ -1,7 +1,8 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
 
 const RegisterRecomment = () => {
+    const navigate = useNavigate()
     return (
         <div
             className="w-full h-[40vh] flex items-center justify-center bg-black"
@@ -19,7 +20,7 @@ const RegisterRecomment = () => {
                     />
                     <button className="relative md:px-0 px-3 sm:w-1/3 md:w-1/5 w-1/3 md:mt-0 mt-5 h-[45px] flex items-center justify-start bg-[#3e3e3e] rounded-lg cursor-pointer border border-white group hover:border-none duration-700 ease-linear">
                         <div className="bg-[#7dc642] absolute w-0 h-full rounded-lg group-hover:w-full duration-300"></div>
-                        <p className="text-lg text-center w-full text-white font-bold z-10">ĐĂNG KÝ</p>
+                        <p onClick={() => navigate('/dang-nhap/dang-ky')} className="text-lg text-center w-full text-white font-bold z-10">ĐĂNG KÝ</p>
                     </button>
                 </div>
             </div>

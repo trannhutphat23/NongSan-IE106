@@ -46,6 +46,9 @@ const AccountInfo = ({ position, select }) => {
             draggable: true,
             progress: undefined,
             theme: "light",
+            onClose: () => {
+                location.reload();
+            }
         });
     }
     const UpdateUser = () => {
@@ -84,7 +87,6 @@ const AccountInfo = ({ position, select }) => {
             birthday: birthday
         })
             .then((res) => {
-                notifySuccess("Cập nhật thông tin thành công")
                 localStorage.setItem('user', JSON.stringify(res.data));
                 if (localStorage.user) {
                     const userObj = JSON.parse(localStorage.user)
@@ -98,6 +100,7 @@ const AccountInfo = ({ position, select }) => {
                         setBirthday(formattedDate);
                     }
                 }
+                notifySuccess("Cập nhật thông tin thành công")
             })
             .catch(err => console.error(err))
     }
@@ -152,18 +155,6 @@ const AccountInfo = ({ position, select }) => {
                         </div>
 
                     </div>
-                    {/* <div className="w-full md:w-1/3 flex flex-col justify-center items-center cursor-pointer">
-                        <div className="w-[180px] h-[180px] border rounded-full flex items-center justify-center">
-                            <div className="relative w-3/4 h-3/4 border rounded-full flex items-center justify-center">
-                                <i className="fa-solid fa-user text-5xl"></i>
-                                <i class="fa-solid fa-camera absolute ml-14"></i>
-                            </div>
-                        </div>
-                        <div className="flex flex-row items-center mt-5 gap-1 text-sm">
-                            <p className=" font-medium text-[#7dc642]">Cập nhật ảnh đại diện</p>
-                            <i class="fa-solid fa-camera text-[#7dc642]"></i>
-                        </div>
-                    </div> */}
                 </div>
             </div>
             <div className="w-8/12 flex flex-row py-10 lg:py-0">

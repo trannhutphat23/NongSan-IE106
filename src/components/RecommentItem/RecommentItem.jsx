@@ -16,6 +16,7 @@ const RecommentItem = ({farm, currItem}) => {
         })
         .catch((err) => console.log(err))
     }, [farm])
+    console.log(list)
     return (
         <>
             {list && (
@@ -41,7 +42,9 @@ const RecommentItem = ({farm, currItem}) => {
                         >
                             {list.map((ele, index) => {
                                 return (
-                                    <SwiperSlide key={index}> <Item itemColor={"green-800"} value={ele}/> </SwiperSlide>
+                                    <SwiperSlide key={index}> 
+                                        <Item itemColor={"green-800"} value={ele}/> 
+                                    </SwiperSlide>
                                 )
                             })}
                             <SwiperNavControl />

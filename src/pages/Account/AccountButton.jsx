@@ -3,7 +3,6 @@ import clsx from "clsx";
 import { Link, useNavigate } from "react-router-dom";
 
 const AccountButton = ({ icon, name, position, select, onclick, path }) => {
-    console.log(select)
     return (
         <>
             {select !== 5 && (

@@ -11,9 +11,6 @@ import { Animator, ScrollContainer, ScrollPage, batch, Fade, FadeIn, FadeOut, Mo
 
 const Home = () => {
     const { items } = useContext(AppContext)
-    useEffect(() => {
-        console.log("hahahahah")
-    }, [])
     return (
         <div>
             <BannerReverse />

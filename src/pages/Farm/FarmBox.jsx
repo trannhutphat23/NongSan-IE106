@@ -1,13 +1,11 @@
 import React from "react";
 import farmImg from '../../assets/farm.png'
-import { Link } from "react-router-dom";
 
 const FarmBox = ({ onclick, value }) => {
     return (
         <>
             {value && (
-                <Link
-                    to={`/trang-trai/${value._id}`}
+                <div
                     onClick={onclick}
                     className="border border-gray-300 rounded-xl cursor-pointer flex justify-center items-center overflow-hidden hover:shadow-xl duration-200 group"
                 >
@@ -22,7 +20,7 @@ const FarmBox = ({ onclick, value }) => {
                             <div className="w-full h-full rounded-full bg-gray-400"></div>
                         </div>
                     )}
-                </Link>
+                </div>
             )}
         </>
     );

@@ -14,7 +14,7 @@ const Farm = () => {
 
     const { farms, setFarms, fetchFarm } = useContext(AppContext)
 
-    const [preFarm, setPreFarm] = useState([])
+    const [preFarm, setPreFarm] = useState({})
     const [isShow, setIsShow] = useState(false)
 
     const params = useParams()
@@ -24,15 +24,10 @@ const Farm = () => {
         if (params.farmID) setIsShow(true)
     }, [params.farmID])
 
-    console.log(farms)
-
     function showFarm(value) {
-        // setPreFarm(value)
-        if (value == params.farmID) {
-            setIsShow(!isShow)
-            navigate("/trang-trai")
-
-        }
+        setPreFarm(value)
+        setIsShow(!isShow)
+        navigate(`/trang-trai/${value}`)
     }
 
     function closeShow() {
@@ -67,7 +62,7 @@ const Farm = () => {
                     <FarmInfo
                         isShow={isShow}
                         onclick={closeShow}
-                        value={preFarm}
+                        value={farms.find(farm => farm._id === preFarm)}
                     />
 
                     <div className="w-full grid grid-cols-2  md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 md:mt-10">
@@ -84,9 +79,6 @@ const Farm = () => {
                     </div>
                 </div>
             </div>
-            {/* <div className="w-full mt-32 flex justify-center pr-1">
-                <RecommentItem />
-            </div> */}
         </div>
     );
 }

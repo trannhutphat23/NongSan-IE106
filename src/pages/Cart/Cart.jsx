@@ -108,57 +108,6 @@ const Cart = () => {
                                     )
                                 })}
                             </div>
-
-                            <div className="w-full hidden h-auto mt-10 sm:mt-5 flex flex-col sm:flex-row sm:items-start items-center justify-between gap-10 md:gap-5">
-                                <div className="w-10/12 hidden h-full sm:w-1/2 md:w-2/5 grid grid-cols-1 ">
-                                    <div className="w-full">
-                                        <p className="text-xl text-left font-bold mb-3 pb-3 border-b">Ưu đãi & giảm giá</p>
-                                        <div className="relative w-full flex items-center gap-3">
-                                            <input
-                                                type="text"
-                                                className="w-full h-[45px] pr-[35%] pl-3  border border-[#3e3e3e] rounded-xl focus:ring-[#7dc642] focus:outline-[#7dc642]"
-                                            />
-                                            <button className="absolute right-0 w-1/3 h-[45px] rounded-xl hover:border-[#7dc642] hover:bg-[#7dc642] group">
-                                                <p className="font-medium group-hover:text-white">Áp dụng</p>
-                                            </button>
-                                        </div>
-                                        <div className="w-full flex items-end justify-end">
-                                            <p className="w-auto text-right font-medium mt-3 hover:text-[#7dc642] cursor-pointer">Mã giảm giá có sẳn</p>
-                                        </div>
-                                    </div>
-                                    <div className="w-full hidden sm:grid grid-cols-1 gap-3 mt-10">
-                                        <UseDiscount />
-                                        <UseDiscount />
-                                    </div>
-                                </div>
-
-
-                                <div className="w-10/12 sm:w-1/2 md:w-2/5  flex flex-col justify-between items-center">
-                                    <div className="w-full pb-5 border-b-2 border-[#3e3e3e]">
-                                        <div className="flex flex-row justify-between items-end gap-3 mb-3">
-                                            <p className="text-base font-bold">Mã giảm giá:</p>
-                                            <p className="text-lg font-bold text-[#ff0000]">-500.000đ</p>
-                                        </div>
-                                        <div className="w-full flex flex-row justify-between items-end gap-3">
-                                            <p className="text-xl font-bold">Tạm tính:</p>
-                                            <p className="text-3xl font-bold text-[#7dc642]">500.000đ</p>
-                                        </div>
-                                    </div>
-                                    <div className="w-full sm:hidden grid grid-cols-1 gap-3 mt-5">
-                                        <UseDiscount />
-                                        <UseDiscount />
-                                    </div>
-                                    <div className="w-4/5 flex flex-row mt-20 cursor-pointer">
-                                        <Link
-                                            to={"/thanh-toan"}
-                                            className="relative bg-[#3e3e3e] w-full h-[50px] rounded-xl flex items-center group overflow-hidden"
-                                        >
-                                            <div className="bg-[#7dc642] absolute w-0 h-full rounded-lg group-hover:w-full duration-300"></div>
-                                            <p className="text-lg text-center w-full text-white font-bold z-10">Đặt hàng</p>
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
 
                         <div className="w-1/3 h-[500px] flex flex-col justify-between bg-gray-100 rounded-lg p-5 py-7">

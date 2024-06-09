@@ -36,7 +36,7 @@ const RecommentItem = ({farm, currItem}) => {
                                 },
                             }}
                             spaceBetween={10}
-                            loop={true}
+                            loop={list.length >= 5}
                             className="mySwiper"
                         >
                             {list.map((ele, index) => {

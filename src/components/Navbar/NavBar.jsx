@@ -121,7 +121,7 @@ const NavBar = () => {
                                         </div>
                                         <div>
                                             <p class="text-white font-normal text-sm text-left">Tài khoản</p>
-                                            <p class="text-[#7dc642] font-medium text-sm text-left"> {name != "" ? <div className="text-[#7dc642] font-medium text-sm text-left">{name}</div> : <p className="text-[#7dc642] font-medium text-sm text-left">Đăng nhập</p>}</p>
+                                            <p class="text-[#7dc642] font-medium text-sm text-left"> {name != "" ? <div className="text-[#7dc642] font-medium text-sm text-left">{name}</div> : <div className="text-[#7dc642] font-medium text-sm text-left">Đăng nhập</div>}</p>
                                         </div>
                                     </div>
                                 </RouterButton>
@@ -306,7 +306,7 @@ const NavBar = () => {
                                         </div>
                                         <div className="hidden lg:block">
                                             <p class="text-white font-normal text-sm text-left">Tài khoản</p>
-                                            {name ? <div className="text-[#7dc642] font-medium text-sm text-left">{name}</div> : (<p className="text-[#7dc642] font-medium text-sm text-left">Đăng nhập</p>)}
+                                            {name ? <div className="text-[#7dc642] font-medium text-sm text-left">{name}</div> : (<div className="text-[#7dc642] font-medium text-sm text-left">Đăng nhập</div>)}
                                         </div>
                                     </div>
                                 </RouterButton>

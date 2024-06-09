@@ -68,7 +68,7 @@ const FarmContent = () => {
                             },
                         }}
                         spaceBetween={10}
-                        loop={true}
+                        loop={farms.length >= 5}
                         className="mySwiper w-full"
                     >
                         {farms.map((value, index) => {
@@ -81,8 +81,6 @@ const FarmContent = () => {
                                 </SwiperSlide>
                             )
                         })}
-
-
                         <SwiperNavControl />
                     </Swiper>
                 </div>

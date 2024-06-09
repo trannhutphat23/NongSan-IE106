@@ -1,11 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const FarmBox = ({ value }) => {
+const FarmBox = ({ value, onclick }) => {
     return (
         <>
             {value && (
                 <Link
+                    to={`/trang-trai/${value._id}`}
+                    onClick={onclick}
                     className="w-full cursor-pointer group overflow"
                 >
                     <div className="overflow-hidden border rounded-xl ">

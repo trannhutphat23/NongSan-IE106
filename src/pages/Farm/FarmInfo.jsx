@@ -1,17 +1,34 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import FarmProduct from "./FarmProduct";
-import clsx from 'clsx'
+import clsx from 'clsx';
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
+const FarmInfo = ({ isShow, onclick }) => {
+    const [content, setContent] = useState(1);
+    const [value, setValue] = useState([]);
+    const params = useParams();
+    const scrollToDivRef = useRef(null);
 
-const FarmInfo = ({ isShow, value }) => {
-
-    const [content, setContent] = useState(1)
+    useEffect(() => {
+        axios.get(`http://localhost:8082/farms/${params.farmID}`)
+            .then((res) => {
+                setValue(res.data);
+                if (scrollToDivRef.current) {
+                    const topPosition = scrollToDivRef.current.getBoundingClientRect().top + window.scrollY - 150;
+                    window.scrollTo({ top: topPosition, behavior: 'smooth' });
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, [params.farmID]);
 
     return (
         <div
-            // className={`w-full lg:h-${preHeight} p-5 bg-[#3e3e3e] mt-10 duration-200 ease-in rounded-xl flex flex-col items-center lg:grid lg:grid-cols-2 gap-5 md:mb-0 mb-10`}
+            ref={scrollToDivRef}
             className={clsx({
-                "w-full h-auto p-5 bg-[#3e3e3e] my-10 duration-200 ease-in rounded-xl flex flex-col md:flex-row gap-5": isShow,
+                "w-full h-auto p-5 mb-10 bg-[#3e3e3e] duration-200 ease-in rounded-xl flex flex-col md:flex-row gap-5": isShow,
                 "hidden": !isShow
             })}
         >
@@ -34,7 +51,6 @@ const FarmInfo = ({ isShow, value }) => {
                                 })}
                             >
                                 <p
-                                    // className="text-lg font-bold group-hover:text-white duration-150"
                                     className={clsx({
                                         "text-lg font-bold text-white": content == 1,
                                         "text-lg font-bold group-hover:text-white duration-150": content != 1
@@ -49,7 +65,6 @@ const FarmInfo = ({ isShow, value }) => {
                                 })}
                             >
                                 <p
-                                    // className="text-lg font-bold group-hover:text-white duration-150"
                                     className={clsx({
                                         "text-lg font-bold text-white": content == 2,
                                         "text-lg font-bold group-hover:text-white duration-150": content != 2
@@ -63,7 +78,10 @@ const FarmInfo = ({ isShow, value }) => {
 
             <div className="md:w-2/3 lg:w-3/4 rounded-xl bg-white p-5">
                 {content == 2 ? (
-                    <div className="w-full h-full flex flex-col gap-5">
+                    <div className="w-full h-full flex flex-col gap-5 relative">
+                        <i
+                            onClick={onclick}
+                            class="absolute right-0 fa-solid fa-square-xmark h-auto text-4xl text-[#3e3e3e] cursor-pointer hover:text-[#ff0000] duration-200"></i>
                         <p className="text-2xl font-bold text-center">CÁC SẢN PHẨM CỦA <span className="block lg:inline-block text-[#7dc642] font-black text-4xl">{value.name}</span> </p>
                         <div className="w-full p-3 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 scrollable-div overflow-y-scroll gap-5 ">
                             {value.items.map((ele, index) => {
@@ -77,12 +95,15 @@ const FarmInfo = ({ isShow, value }) => {
                         </div>
                     </div>
                 ) : (
-                    <div className="w-full h-full flex flex-col gap-5">
+                    <div className="w-full h-full flex flex-col gap-5 relative">
+                        <i
+                            onClick={onclick}
+
+                            class=" absolute right-0 fa-solid fa-square-xmark h-auto text-4xl text-[#3e3e3e] cursor-pointer hover:text-[#ff0000] duration-200"></i>
                         <p className="text-2xl font-bold text-center">THÔNG TIN TRANG TRẠI <span className="block lg:inline-block text-[#7dc642] font-black text-4xl">{value.name}</span> </p>
                         <p className='whitespace-pre-wrap break-words font-[500] text-[16px]'>{value.info}</p>
                     </div>
                 )}
-
             </div>
         </div>
     );

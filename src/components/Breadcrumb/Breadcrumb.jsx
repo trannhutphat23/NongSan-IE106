@@ -1,13 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
 import RouterButton from "../ButtonComponent/RouterButton";
 import { AppContext } from "../../Context/AppContext";
+import { useNavigate } from "react-router-dom";
 
 const Breadcrumb = ({ location }) => {
     const { breadcrumb } = useContext(AppContext)
+    const navigate = useNavigate()
     return (
         <div className="flex flex-row gap-1 w-auto">
             <RouterButton
-                to={"/trang-chu"}
+                path={"/trang-chu"}
             >
                 <div className="flex flex-row items-center gap-3 group">
                     <i className={`fa-solid fa-house text-[#3e3e3e] text-base group-hover:text-[#7dc642]`}></i>

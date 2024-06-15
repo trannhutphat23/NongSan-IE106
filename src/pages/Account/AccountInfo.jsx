@@ -164,7 +164,6 @@ const AccountInfo = ({ position, select }) => {
                 </button>
             </div>
         </div>
-
     );
 }
 

@@ -4,11 +4,27 @@ import { AppContext } from "../../Context/AppContext";
 
 const styleRouterButton = ({ onClick, children, path, width, py, px, topColor, bottomColor, responsive }) => {
     const navigate = useNavigate()
-    const { setNavigateStore, setBreadcrumb } = useContext(AppContext);
+    const { setNavigateStore, breadcrumb, setBreadcrumb } = useContext(AppContext);
+
+    const removeAccents = (str) => {
+        return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    };
+
     const handleNavigate = (path) => {
+        const temp = removeAccents(path.toLowerCase()).replace(" ", "-")
         setNavigateStore(true)
-        setBreadcrumb(prev => ({ ...prev, child: 3, main: "Cửa hàng" , second: (path === '/cua-hang/trai-cay') ? "Trái cây" : "Rau củ"}))
-        navigate(path)
+        setBreadcrumb(prev => ({ ...prev, child: 3, main: "Cửa hàng" , second: (path === 'trai-cay') ? "Trái cây" : "Rau củ", query: {
+            link: temp,
+            category: {
+                slug: breadcrumb.second,
+                link: temp
+            },
+            farm: {
+                slug: "",
+                link: ""
+            }
+        }}))
+        navigate(`/cua-hang/${temp}`)
     }
     return (
         <div onClick={() => handleNavigate(path)}>

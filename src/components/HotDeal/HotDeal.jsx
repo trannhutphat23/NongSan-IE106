@@ -44,7 +44,7 @@ const HotDeal = () => {
             }
         }
         setBreadcrumb(path)
-        navigate(`/cua-hang/${formatLink(category, farm)}`);
+        navigate(`/cua-hang/${formatLink(category, farm)}`)
     }
     return (
         <div className="w-full h-auto p-5 py-20 bg-[#3e3e3e] ">
@@ -63,6 +63,8 @@ const HotDeal = () => {
                         content={"Sản phẩm sạch, sức khoẻ xanh"}
                         btnTopColor={"purple-500"}
                         btnBottomColor={"[#3e3e3e]"}
+                        path={"trai-cay"}
+                        onclick={() => handleNavigate("Trái cây", "FRESH MARKET")}
                     />
                     <DealContent
                         bgImage={DEAL2}
@@ -73,6 +75,7 @@ const HotDeal = () => {
                         content={"Tận hưởng hương vị của mùa hè"}
                         btnTopColor={"orange-500"}
                         btnBottomColor={"[#3e3e3e]"}
+                        path={"trai-cay"}
                         onclick={() => handleNavigate("Trái cây", "FRESH MARKET")}
                     />
                     <DealContent
@@ -84,19 +87,9 @@ const HotDeal = () => {
                         content={"Món quà vườn rau tươi ngon"}
                         btnTopColor={"green-500"}
                         btnBottomColor={"[#3e3e3e]"}
+                        path={"rau-cu"}
                         onclick={() => handleNavigate("Rau củ", "ORGANIC FOOD")}
-
                     />
-                    {/* <DealContent
-                        bgImage={deal1}
-                        bgColor={"purple-200"}
-                        textColor={"pink-500"}
-                        title={"TRÁI CÂY TƯƠI"}
-                        name={"HEALTHY FOOD"}
-                        content={"Giảm giá 40% cho các sản phẩm"}
-                        btnTopColor={"purple-500"}
-                        btnBottomColor={"[#3e3e3e]"}
-                    /> */}
                 </div>
                 <div className="w-full block md:hidden ">
                     <Swiper
@@ -152,7 +145,6 @@ const HotDeal = () => {
                                 btnTopColor={"green-500"}
                                 btnBottomColor={"[#3e3e3e]"}
                                 onclick={() => handleNavigate("Rau củ", "ORGANIC FOOD")}
-
                             />
                         </SwiperSlide>
                         <HotDealControl />

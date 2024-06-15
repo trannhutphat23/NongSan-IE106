@@ -2,9 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import Item from '../../components/Item/Item';
 import CategorySelect from "./CategorySelect";
-import AdvanceSelect from "./AdvanceSelect";
-import RecommentSelect from "./RecommentSelect";
-import PagePagination from "../../components/PagePagination/PagePagination";
 import { AppContext } from "../../Context/AppContext";
 import ResponsiveSelect from "./ResponsiveSelect";
 import FarmSelect from "./FarmSelect";
@@ -12,8 +9,6 @@ import FarmSelect from "./FarmSelect";
 const Store = () => {
     const { items, setItems, fetchItem, breadcrumb } = useContext(AppContext)
     const [showSelect, setShowSelect] = useState(false)
-    const [location, setLocation] = useState("")
-
     return (
         <>
             {items && (
@@ -41,7 +36,6 @@ const Store = () => {
                         <div className="w-1/5 hidden lg:flex flex-col gap-5">
                             <CategorySelect />
                             <FarmSelect />
-                            {/* <RecommentSelect /> */}
                         </div>
                         <div className="w-full lg:w-4/5 grid-cols-2 sm:grid-cols-3 grid md:grid-cols-4 gap-5 ">
                             {items.map((value, index) => {

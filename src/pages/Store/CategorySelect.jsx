@@ -69,27 +69,27 @@ const CategorySelect = () => {
             <ul className="w-full flex flex-col">
                 <li
                     onClick={() => AddBreadcrumb("Thịt tươi", 1)}
-                    className={`w-full  pl-3 py-2 font-medium cursor-pointer hover:bg-[#3e3e3e] hover:text-white duration-100 ${isClick === 1 ? "bg-[#3e3e3e] text-white" : ""}`}>
+                    className={`w-full  pl-3 py-2 font-medium cursor-pointer hover:bg-[#3e3e3e] hover:text-white duration-100 ${(isClick === 1 || breadcrumb.query.category.link === "thit-tuoi") ? "bg-[#3e3e3e] text-white" : ""}`}>
                     Thịt tươi
                 </li>
                 <li
                     onClick={() => AddBreadcrumb("Hải sản", 2)}
-                    className={`w-full  pl-3 py-2 font-medium cursor-pointer hover:bg-[#3e3e3e] hover:text-white duration-100 ${isClick === 2 ? "bg-[#3e3e3e] text-white" : ""}`}>
+                    className={`w-full  pl-3 py-2 font-medium cursor-pointer hover:bg-[#3e3e3e] hover:text-white duration-100 ${(isClick === 2 || breadcrumb.query.category.link === "hai-san") ? "bg-[#3e3e3e] text-white" : ""}`}>
                     Hải sản
                 </li>
                 <li
                     onClick={() => AddBreadcrumb("Rau củ", 3)}
-                    className={`w-full  pl-3 py-2 font-medium cursor-pointer hover:bg-[#3e3e3e] hover:text-white duration-100 ${isClick === 3 ? "bg-[#3e3e3e] text-white" : ""}`}>
+                    className={`w-full  pl-3 py-2 font-medium cursor-pointer hover:bg-[#3e3e3e] hover:text-white duration-100 ${(isClick === 3 || breadcrumb.query.category.link === "rau-cu") ? "bg-[#3e3e3e] text-white" : ""}`}>
                     Rau củ
                 </li>
                 <li
                     onClick={() => AddBreadcrumb("Trái cây", 4)}
-                    className={`w-full  pl-3 py-2 font-medium cursor-pointer hover:bg-[#3e3e3e] hover:text-white duration-100 ${isClick === 4 ? "bg-[#3e3e3e] text-white" : ""}`}>
+                    className={`w-full  pl-3 py-2 font-medium cursor-pointer hover:bg-[#3e3e3e] hover:text-white duration-100 ${(isClick === 4 || breadcrumb.query.category.link === "trai-cay") ? "bg-[#3e3e3e] text-white" : ""}`}>
                     Trái cây
                 </li>
                 <li
                     onClick={() => AddBreadcrumb("Gói nguyên liệu", 5)}
-                    className={`w-full  pl-3 py-2 font-medium cursor-pointer hover:bg-[#3e3e3e] hover:text-white duration-100 ${isClick === 5 ? "bg-[#3e3e3e] text-white" : ""}`}>
+                    className={`w-full  pl-3 py-2 font-medium cursor-pointer hover:bg-[#3e3e3e] hover:text-white duration-100 ${(isClick === 5 || breadcrumb.query.category.link === "goi-nguyen-lieu") ? "bg-[#3e3e3e] text-white" : ""}`}>
                     Gói nguyên liệu
                 </li>
             </ul>

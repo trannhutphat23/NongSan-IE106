@@ -338,8 +338,8 @@ const NavBar = () => {
                                     <p
                                         // className="text-base font-normal text-white py-1 group-hover:text-[#7dc642]"
                                         className={clsx({
-                                            "text-lg font-normal text-white py-1 group-hover:text-[#7dc642]": breadcrumb.child != 1,
-                                            "text-lg font-black py-1 text-[#7dc642] border-b-2 border-[#7dc642]": breadcrumb.child == 1,
+                                            "text-lg font-normal text-white py-1 group-hover:text-[#7dc642]": breadcrumb.child != 1 && location.pathname != "/trang-chu",
+                                            "text-lg font-black py-1 text-[#7dc642] border-b-2 border-[#7dc642]": breadcrumb.child === 1 || location.pathname === "/trang-chu",
                                             // "text-lg font-black py-1 text-[#7dc642] border-[#7dc642]": navigateStore === false
                                         })}
                                     >Trang chủ</p>
@@ -350,8 +350,8 @@ const NavBar = () => {
                                     <p
                                         // className="text-base font-normal text-white py-1 group-hover:text-[#7dc642]"
                                         className={clsx({
-                                            "text-lg font-normal text-white py-1 group-hover:text-[#7dc642]": breadcrumb.child != 2,
-                                            "text-lg font-black py-1 text-[#7dc642] border-b-2 border-[#7dc642]": breadcrumb.child == 2
+                                            "text-lg font-normal text-white py-1 group-hover:text-[#7dc642]": breadcrumb.child != 2 && location.pathname != "/gioi-thieu",
+                                            "text-lg font-black py-1 text-[#7dc642] border-b-2 border-[#7dc642]": breadcrumb.child == 2 || location.pathname === "/gioi-thieu"
                                         })}
                                     >Giới thiệu</p>
                                 </li>
@@ -362,8 +362,8 @@ const NavBar = () => {
                                         <p
                                             // className="text-base font-normal text-white py-1 group-hover:text-[#7dc642]"
                                             className={clsx({
-                                                "text-lg font-normal text-white py-1 group-hover:text-[#7dc642]": breadcrumb.child != 3,
-                                                "text-lg font-black py-1 text-[#7dc642] border-b-2 border-[#7dc642]": breadcrumb.child == 3,
+                                                "text-lg font-normal text-white py-1 group-hover:text-[#7dc642]": breadcrumb.child != 3 && location.pathname != "/cua-hang",
+                                                "text-lg font-black py-1 text-[#7dc642] border-b-2 border-[#7dc642]": breadcrumb.child == 3 || location.pathname === "/cua-hang",
                                                 // "text-lg font-black py-1 text-[#7dc642] border-[#7dc642]": navigateStore === true
                                             })}
                                         >Cửa hàng</p>
@@ -402,8 +402,8 @@ const NavBar = () => {
                                     <p
                                         // className="text-base font-normal text-white py-1 group-hover:text-[#7dc642]"
                                         className={clsx({
-                                            "text-lg font-normal text-white py-1 group-hover:text-[#7dc642]": breadcrumb.child != 4,
-                                            "text-lg font-black py-1 text-[#7dc642] border-b-2 border-[#7dc642]": breadcrumb.child == 4
+                                            "text-lg font-normal text-white py-1 group-hover:text-[#7dc642]": breadcrumb.child != 4 && location.pathname != "/trang-trai",
+                                            "text-lg font-black py-1 text-[#7dc642] border-b-2 border-[#7dc642]": breadcrumb.child == 4 || location.pathname === "/trang-trai"
                                         })}
                                     >Trang trại</p>
                                 </li>
@@ -413,8 +413,8 @@ const NavBar = () => {
                                     <p
                                         // className="text-base font-normal text-white py-1 group-hover:text-[#7dc642]"
                                         className={clsx({
-                                            "text-lg font-normal text-white py-1 group-hover:text-[#7dc642]": breadcrumb.child != 5,
-                                            "text-lg font-black py-1 text-[#7dc642] border-b-2 border-[#7dc642]": breadcrumb.child == 5
+                                            "text-lg font-normal text-white py-1 group-hover:text-[#7dc642]": breadcrumb.child != 5 && location.pathname != "/blog",
+                                            "text-lg font-black py-1 text-[#7dc642] border-b-2 border-[#7dc642]": breadcrumb.child == 5 || location.pathname === "/blog"
                                         })}
                                     >Blog</p>
                                 </li>
@@ -424,8 +424,8 @@ const NavBar = () => {
                                     <p
                                         // className="text-base font-normal text-white py-1 group-hover:text-[#7dc642]"
                                         className={clsx({
-                                            "text-lg font-normal text-white py-1 group-hover:text-[#7dc642]": breadcrumb.child != 6,
-                                            "text-lg font-black py-1 text-[#7dc642] border-b-2 border-[#7dc642]": breadcrumb.child == 6
+                                            "text-lg font-normal text-white py-1 group-hover:text-[#7dc642]": breadcrumb.child != 6 && location.pathname != "/lien-he",
+                                            "text-lg font-black py-1 text-[#7dc642] border-b-2 border-[#7dc642]": breadcrumb.child == 6 || location.pathname === "/lien-he"
                                         })}
                                     >Liên hệ</p>
                                 </li>

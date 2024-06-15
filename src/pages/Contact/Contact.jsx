@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import WebCard from "./WebCard";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 
 const Contact = () => {
     const [name, setName] = useState("")
@@ -12,6 +13,7 @@ const Contact = () => {
     const [phone, setPhone] = useState("")
     const [address, setAddress] = useState("")
     const [text, setText] = useState("")
+    const location = useLocation()
     const notifyError = (message) => {
         toast.error(message, {
             position: "top-right",
@@ -86,7 +88,7 @@ const Contact = () => {
             <ToastContainer/>
             <div className="w-11/12">
                 <div className="w-2/3 mb-5">
-                    <Breadcrumb
+                    <Breadcrumb location={location}
                     />
                 </div>
                 <div className="relative w-full h-auto bg-white lg:bg-transparent rounded-xl lg:h-screen flex flex-col lg:flex-row  justify-end items-center">

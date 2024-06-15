@@ -8,10 +8,10 @@ import ItemComment from "./ItemComment";
 import clsx from "clsx";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
-import BeatLoader from "react-spinners/BeatLoader";
 import RecommentItem from "../../components/RecommentItem/RecommentItem";
 import { AppContext } from "../../Context/AppContext";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 
 const ItemDetails = () => {
     const { fetchCart } = useContext(AppContext)
@@ -22,6 +22,7 @@ const ItemDetails = () => {
     const [userId, setUserId] = useState(null)
     const params = useParams()
     const navigate = useNavigate()
+    const location = useLocation()
     useEffect(() => {
         if (localStorage.user) {
             const userObj = JSON.parse(localStorage.user)
@@ -63,14 +64,12 @@ const ItemDetails = () => {
                         progress: undefined,
                         theme: "light",
                         onClose: () => {
-                            // location.reload();
                             fetchCart()
                         }
                     });
                 })
 
                 .catch((err) => {
-
                     console.log(err)
                 })
                 .finally(() => {
@@ -88,7 +87,6 @@ const ItemDetails = () => {
                         cartNoAcc = JSON.parse(localStorage.cartNoAcc)
 
                         cartNoAcc.map((ele) => {
-                            console.log(ele)
                             if (ele.item._id === res.data.item._id) {
                                 ele.quantity += res.data.quantity
                                 check = true
@@ -122,7 +120,6 @@ const ItemDetails = () => {
     }
 
     const handlePayment = () => {
-        console.log(quantity)
         const paymentObj = {
             items: [{
                 item: item._id,
@@ -147,7 +144,7 @@ const ItemDetails = () => {
                     <div className="w-11/12">
                         <div className="w-2/3 mb-10">
                             <Breadcrumb
-                                location={"ok"}
+                                location={location}
                             />
                         </div>
                         <div className="w-11/12 flex flex-row gap-10">

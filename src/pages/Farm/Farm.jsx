@@ -7,7 +7,7 @@ import FarmProduct from "./FarmProduct";
 import '../../hiddenScroll.css'
 import FarmInfo from "./FarmInfo";
 import { AppContext } from "../../Context/AppContext";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 
 
 const Farm = () => {
@@ -18,6 +18,7 @@ const Farm = () => {
     const [isShow, setIsShow] = useState(false)
 
     const params = useParams()
+    const location = useLocation()
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -39,7 +40,7 @@ const Farm = () => {
         <div className="w-full h-auto flex flex-col items-center py-5 mb-20 ">
             <div className="w-11/12">
                 <div className="w-2/3 mb-5">
-                    <Breadcrumb
+                    <Breadcrumb location={location}
                     />
                 </div>
                 <div className="w-full flex flex-col items-center">

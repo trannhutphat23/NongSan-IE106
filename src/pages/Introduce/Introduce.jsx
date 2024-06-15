@@ -22,14 +22,15 @@ import refund1 from '../../assets/camket/refund1.png'
 import servicee from '../../assets/camket/service.png'
 import servicee1 from '../../assets/camket/service1.png'
 import BubblesBG from "../../components/Background/Bubbles";
-
+import { useLocation } from "react-router-dom";
 
 const Introduce = () => {
+    const location = useLocation()
     return (
         <div className="w-full h-auto flex flex-col items-center gap-[150px] py-5 pb-20 overflow-hidden mb-20">
             <div className="w-11/12">
                 <div className="w-2/3">
-                    <Breadcrumb />
+                    <Breadcrumb location={location}/>
                 </div>
                 <div className="w-full flex flex-col gap-[150px] mt-10">
                     <div className="w-full flex flex-col lg:flex-row gap-10 items-center lg:items-start xl:items-center">

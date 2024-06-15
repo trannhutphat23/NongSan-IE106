@@ -37,6 +37,7 @@ export const AppProvider = ({ children }) => {
     const [order, setOrder] = useState([])
     const [cart, setCart] = useState([])
     const [navigateStore, setNavigateStore] = useState(false)
+    const [isClick, setIsClick] = useState(0)
 
     //farm
     const fetchFarm = () => {
@@ -105,6 +106,7 @@ export const AppProvider = ({ children }) => {
         order, setOrder,
         paymentState, setPaymentState, getPaymentState,
         navigateStore, setNavigateStore,
+        isClick, setIsClick,
     }}>
         {children}
     </AppContext.Provider>

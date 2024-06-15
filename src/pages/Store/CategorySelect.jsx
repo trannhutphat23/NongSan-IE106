@@ -3,12 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { AppContext } from "../../Context/AppContext";
 import _ from 'lodash';
 
-
 const CategorySelect = () => {
-    const [isClick, setIsClick] = useState(0)
     const navigate = useNavigate()
-    const { breadcrumb, setBreadcrumb } = useContext(AppContext);
-
+    const { breadcrumb, setBreadcrumb, isClick, setIsClick} = useContext(AppContext);
+ 
     const removeAccents = (str) => {
         return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     };
@@ -17,7 +15,7 @@ const CategorySelect = () => {
         if (breadcrumb.query.farm.link) return link + "&" + breadcrumb.query.farm.link
         else return link
     }
-
+    
     function AddBreadcrumb(bread, pos) {
         const temp = removeAccents(bread.toLowerCase()).replace(" ", "-")
         if (pos != isClick) {
@@ -61,7 +59,6 @@ const CategorySelect = () => {
             setBreadcrumb(path)
             navigate(`/cua-hang/${breadcrumb.query.farm.link}`);
         }
-
     }
     return (
         <div className="w-full flex flex-col border bg-white border-gray-300 rounded-t-xl overflow-hidden">

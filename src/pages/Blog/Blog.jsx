@@ -3,13 +3,15 @@ import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import BigBlog from "./BigBlog";
 import MediumBlog from "./MediumBlog";
 import logo from '../../assets/logo.png'
+import { useLocation } from "react-router-dom";
 
 const Blog = () => {
+    const location = useLocation()
     return (
         <div className="w-full h-auto flex flex-col items-center py-5 mb-20">
             <div className="w-11/12">
                 <div className="w-2/3 mb-5">
-                    <Breadcrumb
+                    <Breadcrumb location={location}
                     />
                 </div>
                 <div>

@@ -5,10 +5,12 @@ import CategorySelect from "./CategorySelect";
 import { AppContext } from "../../Context/AppContext";
 import ResponsiveSelect from "./ResponsiveSelect";
 import FarmSelect from "./FarmSelect";
+import { useLocation } from "react-router-dom";
 
 const Store = () => {
     const { items, setItems, fetchItem, breadcrumb } = useContext(AppContext)
     const [showSelect, setShowSelect] = useState(false)
+    const location = useLocation()
     return (
         <>
             {items && (
@@ -20,8 +22,7 @@ const Store = () => {
                 )}
                 <div className="w-11/12">
                     <div className="w-full mb-5 flex flex-row items-center justify-between">
-                        <Breadcrumb
-                        />
+                        <Breadcrumb location={location}/>
                         <button
                             onClick={() => setShowSelect(!showSelect)}
                             className="relative overflow-hidden h-[40px] lg:hidden flex items-center justify-start border border-[#3e3e3e] hover:border-[#7dc642] rounded-xl cursor-pointer  group  "

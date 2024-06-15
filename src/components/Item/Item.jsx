@@ -15,7 +15,10 @@ const Item = ({ itemColor, value }) => {
             child: 3
         }
 
-        setBreadcrumb(temp)
+        setBreadcrumb(prev => ({
+            ...prev,
+            temp
+        }))
     }
     const formatNumber = (number) => {
         return new Intl.NumberFormat('de-DE').format(number);

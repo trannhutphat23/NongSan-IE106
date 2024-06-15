@@ -8,7 +8,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import ScrollNavBar from "./ScrollNavBar";
 
 const NavBar = () => {
-    const { breadcrumb, setBreadcrumb, cart, fetchCart } = useContext(AppContext)
+    const { breadcrumb, setBreadcrumb, cart, fetchCart, setIsClick } = useContext(AppContext)
     const [sideBar, setSideBar] = useState(true)
     const [search, setSearch] = useState("")
     const [isPast, setIsPast] = useState(false);
@@ -70,16 +70,20 @@ const NavBar = () => {
         setBreadcrumb(temp)
         setSideBar(!sideBar);
     }
+    const removeAccents = (str) => {
+        return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    };
     function updateBreadcrumb(main, second, child) {
+        const formatPath = removeAccents(second.toLowerCase()).replace(" ", "-")
         const temp = {
             main: main,
             second: second,
             child: child,
             query: {
-                link: "",
+                link: formatPath,
                 category: {
-                    slug: "",
-                    link: ""
+                    slug: second,
+                    link: formatPath
                 },
                 farm: {
                     slug: "",
@@ -88,6 +92,7 @@ const NavBar = () => {
             }
         }
         setBreadcrumb(temp)
+        setIsClick(0)
     }
 
     function handleSearch() {

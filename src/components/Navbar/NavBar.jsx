@@ -16,6 +16,7 @@ const NavBar = () => {
     const divRef = useRef(null);
     const navigate = useNavigate()
     const location = useLocation()
+    
     const handleScroll = () => {
         if (divRef.current) {
             const rect = divRef.current.getBoundingClientRect();
@@ -42,9 +43,8 @@ const NavBar = () => {
     }, [location])
 
     useEffect(() => {
-        // setNavigateStore(false)
         window.addEventListener('scroll', handleScroll);
-        handleScroll(); // Initial check
+        handleScroll();
 
         return () => {
             window.removeEventListener('scroll', handleScroll);
@@ -110,7 +110,7 @@ const NavBar = () => {
             setNumCartNoAcc(cartNoAccount.length)
         }
     }, [])
-
+    
     return (
         <div className="sticky top-0 z-40 shadow shadow-[#575656]">
             <div className="w-full relative" ref={divRef}>
@@ -345,7 +345,6 @@ const NavBar = () => {
                                         className={clsx({
                                             "text-lg font-normal text-white py-1 group-hover:text-[#7dc642]": breadcrumb.child != 1 && location.pathname != "/trang-chu",
                                             "text-lg font-black py-1 text-[#7dc642] border-b-2 border-[#7dc642]": breadcrumb.child === 1 || location.pathname === "/trang-chu",
-                                            // "text-lg font-black py-1 text-[#7dc642] border-[#7dc642]": navigateStore === false
                                         })}
                                     >Trang chủ</p>
                                 </li>
@@ -367,9 +366,8 @@ const NavBar = () => {
                                         <p
                                             // className="text-base font-normal text-white py-1 group-hover:text-[#7dc642]"
                                             className={clsx({
-                                                "text-lg font-normal text-white py-1 group-hover:text-[#7dc642]": breadcrumb.child != 3 && location.pathname != "/cua-hang",
-                                                "text-lg font-black py-1 text-[#7dc642] border-b-2 border-[#7dc642]": breadcrumb.child == 3 || location.pathname === "/cua-hang",
-                                                // "text-lg font-black py-1 text-[#7dc642] border-[#7dc642]": navigateStore === true
+                                                "text-lg font-normal text-white py-1 group-hover:text-[#7dc642]": breadcrumb.child != 3 && (location.pathname != "/cua-hang" && !location.pathname.includes("/cua-hang/san-pham")),
+                                                "text-lg font-black py-1 text-[#7dc642] border-b-2 border-[#7dc642]": breadcrumb.child == 3 || (location.pathname === "/cua-hang" || location.pathname.includes("/cua-hang/san-pham")),
                                             })}
                                         >Cửa hàng</p>
                                     </li>

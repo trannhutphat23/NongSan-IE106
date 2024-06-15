@@ -3,11 +3,12 @@ import item from '../../assets/image/item.png'
 import StatusTag from "../Tag/StatusTag";
 import ItemTag from "../Tag/ItemTag";
 import RouterButton from "../ButtonComponent/RouterButton";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { AppContext } from "../../Context/AppContext";
 
 const Item = ({ itemColor, value }) => {
     const { setBreadcrumb } = useContext(AppContext)
+    const navigate = useNavigate()
 
     function handleBreadcrumb() {
         const temp = {
@@ -15,10 +16,9 @@ const Item = ({ itemColor, value }) => {
             child: 3
         }
 
-        setBreadcrumb(prev => ({
-            ...prev,
-            temp
-        }))
+        setBreadcrumb(temp)
+
+        navigate(`/cua-hang/san-pham/${value._id}`)
     }
     const formatNumber = (number) => {
         return new Intl.NumberFormat('de-DE').format(number);
@@ -26,9 +26,7 @@ const Item = ({ itemColor, value }) => {
     return (
         <>
             {value && (
-                <Link
-                    // path={`/cua-hang/${tag}/${itemName}`}
-                    to={`/cua-hang/san-pham/${value._id}`}
+                <div
                     onClick={handleBreadcrumb}
                 >
                     <div className={`w-ful border border-gray-400 bg-white rounded-lg p-3 hover:bg-${itemColor} group hover:border-none duration-200 cursor-pointer`}>
@@ -64,8 +62,7 @@ const Item = ({ itemColor, value }) => {
                             </div>
                         </div>
                     </div>
-
-                </Link>
+                </div>
             )}
         </>
 

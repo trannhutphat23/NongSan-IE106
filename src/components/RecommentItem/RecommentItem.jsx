@@ -16,7 +16,6 @@ const RecommentItem = ({farm, currItem}) => {
         })
         .catch((err) => console.log(err))
     }, [farm])
-    console.log(list)
     return (
         <>
             {list && (

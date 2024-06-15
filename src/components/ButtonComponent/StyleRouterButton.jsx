@@ -24,7 +24,11 @@ const styleRouterButton = ({ onClick, children, path, width, py, px, topColor, b
                 link: ""
             }
         }}))
-        navigate(`/cua-hang/${temp}`)
+        if (path.includes("/cua-hang/san-pham")){
+            navigate(path)
+        }else{
+            navigate(`/cua-hang/${temp}`)
+        }
     }
     return (
         <div onClick={() => handleNavigate(path)}>

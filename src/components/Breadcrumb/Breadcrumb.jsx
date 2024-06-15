@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import RouterButton from "../ButtonComponent/RouterButton";
 import { AppContext } from "../../Context/AppContext";
-import { useNavigate } from "react-router-dom";
 
 const Breadcrumb = ({ location, items }) => {
     const { breadcrumb, setBreadcrumb } = useContext(AppContext)
@@ -22,11 +21,16 @@ const Breadcrumb = ({ location, items }) => {
         }
     }
     useEffect(() => {
-        if(!location.pathname.includes("/cua-hang/san-pham/")){
+        if(location.pathnam || !location.pathname.includes("/cua-hang/san-pham/")){
             const main = getBreadcrumb(location.pathname)
             setBreadcrumb(prev => ({
                 ...prev,
                 main: main
+            }))
+        }else{
+            setBreadcrumb(prev => ({
+               ...prev,
+                main: "Cửa hàng",
             }))
         }
     }, [])

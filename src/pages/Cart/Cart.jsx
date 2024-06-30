@@ -64,7 +64,7 @@ const Cart = () => {
     const makeOrder = () => {
         const price = total - discount
         const paymentObj = {
-            items: cart,
+            items: cartNoAcc || cart,
             voucher: voucherSelect,
             tempPrice: total,
             discount: discount,

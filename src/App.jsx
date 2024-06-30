@@ -44,14 +44,14 @@ function App() {
   return (
     <div className="relative">
       <AppProvider>
-        {/* <ChatBox /> */}
+        <ChatBox />
         <RollToTopButton />
         <BrowserRouter>
           <NavBar />
           <Routes>
             <Route>
 
-              <Route path="/" element={<Home />} />
+              <Route index path="/" element={<Home />} />
               <Route path="/trang-chu" element={<Home />} />
 
               <Route path="/gioi-thieu" element={<Introduce />} />

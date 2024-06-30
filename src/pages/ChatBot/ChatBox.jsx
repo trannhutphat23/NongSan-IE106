@@ -204,7 +204,7 @@ const ChatBox = () => {
 
 
     return (
-        <div className="fixed z-50 right-5 bottom-5 flex flex-row items-end gap-3">
+        <div className="fixed z-50 right-5 bottom-20 flex flex-row items-end gap-3">
             <div className={clsx({
                 "w-[400px] h-[550px] bg-gray-100 border  rounded-lg shadow-2xl overflow-hidden": isOpen,
                 "hidden": !isOpen

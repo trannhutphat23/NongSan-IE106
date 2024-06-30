@@ -21,17 +21,25 @@ const Breadcrumb = ({ location, items }) => {
         }
     }
     useEffect(() => {
-        if(location.pathnam || !location.pathname.includes("/cua-hang/san-pham/")){
+        console.log(location)
+        if(location.pathname || (location.pathname && !location.pathname.includes("/cua-hang/san-pham/"))){
             const main = getBreadcrumb(location.pathname)
             setBreadcrumb(prev => ({
                 ...prev,
                 main: main
             }))
         }else{
-            setBreadcrumb(prev => ({
-               ...prev,
-                main: "Cửa hàng",
-            }))
+            if (location === 'Đăng nhập/Đăng ký'){
+                setBreadcrumb(prev => ({
+                   ...prev,
+                    main: "Đăng nhập/Đăng ký",
+                }))
+            }else{
+                setBreadcrumb(prev => ({
+                   ...prev,
+                    main: "Cửa hàng",
+                }))
+            }
         }
     }, [])
     

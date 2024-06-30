@@ -64,7 +64,7 @@ const Cart = () => {
     const makeOrder = () => {
         const price = total - discount
         const paymentObj = {
-            items: cartNoAcc || cart,
+            items: (localStorage.token ? cart : cartNoAcc),
             voucher: voucherSelect,
             tempPrice: total,
             discount: discount,

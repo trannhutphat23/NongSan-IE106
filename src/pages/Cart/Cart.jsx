@@ -25,6 +25,11 @@ const Cart = () => {
             if (localStorage.cartNoAcc) {
                 const cartNoAccount = JSON.parse(localStorage.cartNoAcc)
                 setCartNoAcc(cartNoAccount)
+                const total = cartNoAccount.reduce((acc, item) => {
+                    const totalPrice = item.item.price - item.item.price * item.item.tag;
+                    return acc + totalPrice * item.amount;
+                }, 0)
+                setTotal(total)
             }
         }
     }, [cart])
